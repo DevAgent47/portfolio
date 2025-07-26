@@ -1,35 +1,50 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import React, { useState } from 'react';
+import { Layout, Button, Switch } from 'antd';
+import Navbar from './components/Navbar';
+import AppRouter from './router';
+import { motion } from 'framer-motion';
+import { DownloadOutlined } from '@ant-design/icons';
 
-function App() {
-  const [count, setCount] = useState(0)
+const { Header, Content, Footer } = Layout;
+
+const App: React.FC = () => {
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
-}
+    <Layout style={{ minHeight: '100vh' }} className={darkMode ? 'dark-mode' : ''}>
+      <Header style={{ backgroundColor: '#001529' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          <Navbar />
+          <div>
+            <Switch
+              checkedChildren="🌙"
+              unCheckedChildren="☀️"
+              onChange={() => setDarkMode(!darkMode)}
+            />
+            <Button
+              type="primary"
+              icon={<DownloadOutlined />}
+              style={{ marginLeft: '1rem' }}
+              href="./assets/Resume.pdf"
+              target="_blank"
+            >
+              Resume
+            </Button>
+          </div>
+        </div>
+      </Header>
+      <Content style={{ padding: '2rem' }}>
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+        >
+          <AppRouter />
+        </motion.div>
+      </Content>
+      <Footer style={{ textAlign: 'center' }}>© 2025 Trevor Keck</Footer>
+    </Layout>
+  );
+};
 
-export default App
+export default App;
