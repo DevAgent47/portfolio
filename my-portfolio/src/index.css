@@ -18,16 +18,9 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
-}
-
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
 }
 
 h1 {
@@ -46,9 +39,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -59,10 +54,64 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
+}
+
+
+.dark-mode {
+  background-color: rgb(24 27 32);
+  color: #ffffff;
+}
+
+.dark-mode .ant-layout-header {
+  background-color: #141414;
+}
+
+.dark-mode .ant-layout-content {
+  background-color: #1f1f1f;
+}
+
+.dark-mode .ant-typography {
+  color: #ffffff;
+}
+
+.dark-mode .ant-card {
+  background-image: linear-gradient(45deg, black, rgb(33, 33, 33));
+  color: #ffffff;
+}
+
+.dark-mode .ant-card-head {
+  background-color: rgba(255, 255, 255, 0.208);
+  color: #ffffff;
+}
+
+.avatar {
+  height: 200px;
+  width: 200px;
+  border-radius: 100px;
+  border: 1px solid white;
+}
+
+.outline-div {
+  padding: 20px 40px;
+  margin: 15px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-image: linear-gradient(45deg, black, transparent);
+  box-shadow: 6px 5px 16px 0 rgba(0, 0, 0, 0.2),
+    0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.footer {
+  background-color: rgba(255, 255, 255, 0.082);
+  color: white;
+  text-align: center;
+  line-height: 50px;
 }
