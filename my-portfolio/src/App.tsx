@@ -8,7 +8,8 @@ import Projects from './pages/Projects';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
-const { Header, Content, Footer } = Layout;
+import EmailButton from './components/EmailButton';
+const { Content } = Layout;
 
 const App: React.FC = () => {
   const [darkMode, setDarkMode] = useState(true);
@@ -21,9 +22,10 @@ const App: React.FC = () => {
         },
       }}
     >
-      <Layout style={{ minHeight: '100vh', minWidth: "600px", width: "100vw", backgroundColor: "rgb(31 31 31)" }} className={darkMode ? 'dark-mode' : ''}>
+      <Layout style={{ minHeight: '100vh', minWidth: "600px", width: "100vw", backgroundColor: darkMode ? "rgb(31 31 31)" : "rgb(222 222 222)" }} className={darkMode ? 'dark-mode' : ''}>
+        <EmailButton />
         <FloatButton
-          style={{ insetBlockEnd: 108 }}
+          style={{ insetBlockEnd: 102 }}
           tooltip={{
             // tooltipProps is supported starting from version 5.25.0.
             title: 'Mode Change',
@@ -32,7 +34,11 @@ const App: React.FC = () => {
           icon={darkMode ? "🌙" : "☀️"}
           onClick={() => setDarkMode(!darkMode)}
         />
-        <FloatButton tooltip={<div>Resume</div>} style={{ backgroundImage: "linear-gradient(45deg, #e721ff, transparent)", border: 0 }} />
+        <FloatButton
+          tooltip={<div>Resume</div>}
+          style={{ backgroundImage: "linear-gradient(45deg, #e721ff, transparent)", border: 0 }}
+          onClick={() => window.open('src/assets/Resume.pdf')}
+        />
         <Content style={{ padding: '2rem' }}>
           {/* <motion.div
             initial={{ opacity: 0, y: 20 }}
