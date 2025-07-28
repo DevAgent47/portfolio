@@ -1,9 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Button, Switch, ConfigProvider, FloatButton } from 'antd';
-import Navbar from './components/Navbar';
-// import AppRouter from './router';
-// import { motion } from 'framer-motion';
-import { DownloadOutlined } from '@ant-design/icons';
+import { Layout, ConfigProvider, FloatButton } from 'antd';
 import Projects from './pages/Projects';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -27,7 +23,6 @@ const App: React.FC = () => {
         <FloatButton
           style={{ insetBlockEnd: 102 }}
           tooltip={{
-            // tooltipProps is supported starting from version 5.25.0.
             title: 'Mode Change',
             placement: 'top',
           }}
@@ -40,13 +35,6 @@ const App: React.FC = () => {
           onClick={() => window.open('src/assets/Resume.pdf')}
         />
         <Content style={{ padding: '2rem' }}>
-          {/* <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <AppRouter />
-          </motion.div> */}
           <Home />
           <About />
           <Contact />
